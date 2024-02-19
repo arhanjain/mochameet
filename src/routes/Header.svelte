@@ -32,8 +32,8 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
+		<a href="/profile" class="w-100 h-100 font-medium">
+			Profile
 		</a>
 	</div>
 </header>

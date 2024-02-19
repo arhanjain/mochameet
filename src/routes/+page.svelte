@@ -2,6 +2,8 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import WheelOfFortune from './Wheel-of-Fortune.svelte';
+
 </script>
 
 <svelte:head>
@@ -10,24 +12,8 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<p class="text-3xl font-extrabold text-red-700">This is a test!!! Hi bhavesh</p>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+	<!-- <WheelOfFortune /> -->
+	hi
 </section>
 
 <style>
