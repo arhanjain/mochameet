@@ -21,6 +21,8 @@
 		to your new<br />SvelteKit app
 	</h1>
 
+	<p class="text-3xl font-extrabold text-red-700">This is a test!!! Hi bhavesh</p>
+
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
