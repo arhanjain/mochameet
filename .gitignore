@@ -15,3 +15,5 @@ node_modules
 pocketbase/pocketbase
 pocketbase/pb_migrations
 pocketbase/pb_data
+
+.env

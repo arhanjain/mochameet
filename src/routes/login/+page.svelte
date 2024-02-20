@@ -11,7 +11,7 @@
           {form.message}
       </div>
   {/if}
-  <form action="?/login" method="post">
+  <form action="?/login" method="post" class="h-full w-full">
       <label class="label">
           <span>E-Mail</span>
           <input class="input" name="email" title="E-Mail" type="email" placeholder="mail@example.com" required />
