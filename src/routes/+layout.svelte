@@ -1,49 +1,49 @@
-<script>
-	import Header from './Header.svelte';
-	import './styles.css';
-	import "../app.css"
+<script lang="ts">
+  import '../app.css'
+
+  import { applyAction, enhance } from '$app/forms'
+  import { pb } from '$lib/pocketbase'
+  import { currentUser } from '$lib/stores/user'
+  import type { PageData } from './$types'
+
+  export let data: PageData
+
+  // Set the current user from the data passed in from the server
+  $: currentUser.set(data.user)
 </script>
 
-<div class="ap">
-	<main>
-		<slot />
-	</main>
-
+<div class="bg-neutral text-neutral-content">
+  <div class="max-w-xl mx-auto navbar">
+    <div class="navbar-start">
+      <a href="/" class="btn btn-ghost text-xl">Mocha Meet</a>
+    </div>
+    <div class="navbar-end">
+      <ul class="menu menu-horizontal">
+        {#if $currentUser}
+          <li><a href="/">{$currentUser.email}</a></li>
+          <li>
+            <form
+              method="POST"
+              action="/logout"
+              use:enhance={() => {
+                return async ({ result }) => {
+                  pb.authStore.clear()
+                  await applyAction(result)
+                }
+              }}
+            >
+              <button>Log out</button>
+            </form>
+          </li>
+        {:else}
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/register">Register</a></li>
+        {/if}
+      </ul>
+    </div>
+  </div>
 </div>
 
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		/* max-width: 64rem; */
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
+<div class="max-w-xl mx-auto py-8 px-4">
+  <slot />
+</div>

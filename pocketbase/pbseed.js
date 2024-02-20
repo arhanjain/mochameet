@@ -10,7 +10,7 @@ async function run() {
     console.log("url, email, password", process.env.PB_URL, process.env.PB_EMAIL, process.env.PB_PASSWORD)
     const pb = new PocketBase(process.env.PB_URL)
 
-    await pb.admins.authWithPassword(
+    await pb.admins.authWihPassword(
         process.env.PB_EMAIL,
         process.env.PB_PASSWORD
     )
