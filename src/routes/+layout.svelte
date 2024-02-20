@@ -13,14 +13,14 @@
 </script>
 
 <div class="bg-neutral text-neutral-content">
-  <div class="max-w-xl mx-auto navbar">
+  <div class="navbar">
     <div class="navbar-start">
       <a href="/" class="btn btn-ghost text-xl">Mocha Meet</a>
     </div>
     <div class="navbar-end">
       <ul class="menu menu-horizontal">
         {#if $currentUser}
-          <li><a href="/">{$currentUser.email}</a></li>
+          <li><a href="/profile">{$currentUser.email}</a></li>
           <li>
             <form
               method="POST"
@@ -44,6 +44,6 @@
   </div>
 </div>
 
-<div class="max-w-xl mx-auto py-8 px-4">
+<div class=" py-8 px-4">
   <slot />
 </div>
