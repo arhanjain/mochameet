@@ -12,8 +12,11 @@ package
 
 node_modules
 
+# pocketbase
+pocketbase/pocketbase
+pocketbase/pb_migrations
+pocketbase/pb_data
+
 # local env files
 .env 
 
-# pocketbase
-pocketbase/
