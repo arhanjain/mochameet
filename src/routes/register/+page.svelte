@@ -13,7 +13,7 @@
     }
   }}
 >
-  <h1 class="text-2xl mb-8">Log in</h1>
+  <h1 class="text-2xl mb-8">Register</h1>
   <div class="form-control gap-2 mb-4">
     <input
       type="email"
@@ -27,6 +27,12 @@
       placeholder="Password"
       class="input input-bordered"
     />
-    <button class="btn btn-primary">Log in</button>
+    <input
+      type="password"
+      name="passwordConfirm"
+      placeholder="Confirm password"
+      class="input input-bordered"
+    />
+    <button class="btn btn-primary">Register</button>
   </div>
 </form>

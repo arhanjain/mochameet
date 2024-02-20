@@ -11,3 +11,9 @@ package
 # End of https://www.toptal.com/developers/gitignore/api/svelte
 
 node_modules
+
+# local env files
+.env 
+
+# pocketbase
+pocketbase/
