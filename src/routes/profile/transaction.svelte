@@ -1,19 +1,22 @@
 
 <script lang="ts">
-    import type { location } from "../../types";
-
-    export let cafe: location;
+    import type {Location} from "$lib/types"
+    export let location: string;
+    export let friend: string;
+    export let host: boolean;
 
 </script>
 
 
 <div class="grid grid-cols-5">
-    <div class="flex justify-center items-center border">You</div> 
+    <div class="flex justify-center items-center border">
+        {host ? "YOU" : friend}
+    </div> 
     <div class="flex justify-center items-center col-span-3">
-        Coffee @ {cafe.name}
+        Coffee @ {location}
     </div>
     <div class="flex flex-col items-center border">
-        <p>Guest</p>
+        <p>{host ? friend : "YOU"}</p>
         <img 
             src="https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2281862025.jpg" 
             alt="profile pic" 
