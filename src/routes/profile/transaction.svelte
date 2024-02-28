@@ -1,6 +1,6 @@
 
 <script lang="ts">
-    import type { location } from "../../types";
+    import type { location } from "../../lib/types";
 
     export let cafe: location;
 

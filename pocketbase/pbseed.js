@@ -1,16 +1,15 @@
 import PocketBase from 'pocketbase';
 import dotenv from 'dotenv';
-
+    
 dotenv.config({ path: '../.env' });
 // import {type Transaction, User} from "../src/types"
 
 
 async function run() {
+    console.log("url, email, password", process.env.PUBLIC_POCKETBASE_URL, process.env.PB_EMAIL, process.env.PB_PASSWORD)
+    const pb = new PocketBase(process.env.PUBLIC_POCKETBASE_URL)
 
-    console.log("url, email, password", process.env.PB_URL, process.env.PB_EMAIL, process.env.PB_PASSWORD)
-    const pb = new PocketBase(process.env.PB_URL)
-
-    await pb.admins.authWihPassword(
+    await pb.admins.authWithPassword(
         process.env.PB_EMAIL,
         process.env.PB_PASSWORD
     )
