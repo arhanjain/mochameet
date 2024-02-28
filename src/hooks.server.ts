@@ -37,7 +37,7 @@ import { building } from '$app/environment';
 
 export const handle: Handle = async ({ event, resolve }) => {
     event.locals.id = '';
-    event.locals.email = '';
+    event.locals.username = '';
     event.locals.pb = createInstance();
 
     const isAuth: boolean = event.url.pathname === '/auth';
@@ -56,9 +56,10 @@ export const handle: Handle = async ({ event, resolve }) => {
     try {
         const auth = await event.locals.pb
             .collection('users')
-            .authRefresh<{ id: string; email: string }>();
+            .authRefresh<{ id: string; username: string }>();
         event.locals.id = auth.record.id;
-        event.locals.email = auth.record.email;
+        event.locals.username = auth.record.username;
+        console.log("authRefresh", auth.record.id, auth.record.username);
     } catch (_) {
         throw redirect(303, '/auth');
     }

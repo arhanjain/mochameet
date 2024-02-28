@@ -7,6 +7,7 @@
   import type { PageData } from './$types'
 
   export let data: PageData
+  console.log(data);
 
   // Set the current user from the data passed in from the server
   $: currentUser.set(data.user)
@@ -20,7 +21,7 @@
     <div class="navbar-end">
       <ul class="menu menu-horizontal">
         {#if $currentUser}
-          <li><a href="/profile">{$currentUser.email}</a></li>
+          <li><a href="/profile">{$currentUser}</a></li>
           <li>
             <form
               method="POST"
@@ -36,8 +37,8 @@
             </form>
           </li>
         {:else}
-          <li><a href="/login">Log in</a></li>
-          <li><a href="/register">Register</a></li>
+          <li><a href="/auth">Log in</a></li>
+          <!-- <li><a href="/register">Register</a></li> -->
         {/if}
       </ul>
     </div>
