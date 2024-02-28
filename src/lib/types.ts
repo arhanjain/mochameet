@@ -1,5 +1,5 @@
 
-interface Location {
+export interface Location {
     name: string;
 }
 
@@ -10,16 +10,16 @@ export interface Profile {
 }
 
 export interface Transaction {
-    id: number;
-    date: string;
+    id: string;
     amount: number;
-    location: Location;
-    host: User;
-    guest: User;
+    location: string;
+    host: User["id"];
+    guest: User["id"];
+    date: string;
 }
 
 export interface User {
-    id: number;
+    id: string;
     name: string;
     email: string;
     password: string;

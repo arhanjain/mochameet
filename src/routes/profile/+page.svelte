@@ -1,17 +1,9 @@
-<script context="module">
-    export async function load({ params }) {
-        const { page } = params;
-        return { props: { page } };
-    }
-</script>
-
-<script>
+<script lang="ts">
     import Transaction from "./transaction.svelte";
+    import type { PageData } from "./$types";
 
-    let cafe = {
-        name: "Starbucks",
-    };
-
+    export let data: PageData;
+    console.log(data);
 </script>
 
 
@@ -25,7 +17,7 @@
         />
         <div class="flex justify-evenly items-center">
             <p class="text-lg font-bold">Name</p>
-            <p class="text-lg">John Doe</p>
+            <p class="text-lg">{data.user?.name}</p>
         </div>
         <div class="flex justify-evenly ">
             <p class="text-lg font-bold">Phone</p>
@@ -33,13 +25,21 @@
         </div>  
     </div>
 
-    <div class="w-1/2 bg-slate-50 mt-5">
-        <!-- turn this into grid -->
-        <div class="flex justify-between border">
-            <div class="text-xl mx-2">Host</div>
-            <div class="text-xl mx-2">Guest</div>
-        </div>
-        <!-- <Transaction cafe={} /> -->
-    </div>
+    {#each data.transactions.items as transaction}
+        {#if transaction.host === data.user?.id}
+            <Transaction
+                location={transaction.location}
+                friend={transaction.guest}
+                host={true}
+            />
+        {:else}
+            <Transaction
+                location={transaction.location}
+                friend={transaction.host}
+                host={false}
+            />
+        {/if}
+    {/each}
+
 </div>
 
