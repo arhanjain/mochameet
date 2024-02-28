@@ -21,7 +21,7 @@ export interface Transaction {
 export interface User {
     id: number;
     name: string;
-    email: stri ng;
+    email: string;
     username: string;
     password: string;
 }
