@@ -1,4 +1,13 @@
-# create-svelte
+# mochameet :)
+
+A fun scrappy project to learn sveltekit while promoting coffee chat culture
+
+### .env requires
+MAPS_API_KEY
+PUBLIC_POCKETBASE_URL
+
+### enable HTTPS (for geolocation i think) 
+see [enabling https for local dev sveltekit](https://stackoverflow.com/a/76525335)
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 

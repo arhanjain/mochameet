@@ -1,6 +1,8 @@
 
-interface Location {
+export interface Location {
     name: string;
+    photo: string;
+    id: string;
 }
 
 // DB Record Types

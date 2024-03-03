@@ -20,3 +20,5 @@ pocketbase/pb_data
 # local env files
 .env 
 
+# certifications
+cert/
